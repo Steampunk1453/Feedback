@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="settings_options">
+        <item>Gestion de contraseñas</item>
+        <item>Mostrar tutorial</item>
+        <item>Pregunta de seguridad</item>
+        <item>Reiniciar contraseña</item>
+        <item>Eliminar publicidad</item>
+        <!--<item>Consumir publicidad</item>-->
+    </string-array>
+
+    <string-array name="jugadas">
+        <item>Penalti de</item>
+        <item>Falta de</item>
+        <item>Fuera de juego de</item>
+        <item>Amonestación a</item>
+        <item>Expulsión de</item>
+        <item>Agresión de</item>
+        <item>Mano de</item>
+    </string-array>
+
+
+</resources>
