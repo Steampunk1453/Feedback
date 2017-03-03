@@ -174,3 +174,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
+
+//Web Scraping
+//https://jarroba.com/scraping-java-jsoup-ejemplos/
