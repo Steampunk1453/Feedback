@@ -139,8 +139,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... strings) {
-            //        for (int i = 1; i < MAX_PAGES; i++){
-            //        String urlPage = String.format(URL, i);
             String resultado = "OK";
             Log.d(TAG, "Comprobando entradas de: " + URL);
             // Comprobacion de 200 al hacer la peticion
@@ -160,7 +158,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "El Status Code no es OK es: " + getStatusConnectionCode(URL));
                 resultado = "KO";
             }
-//    }
             return resultado;
         }
 
@@ -169,7 +166,6 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(s);
 
             if (listaPartidos != null && listaPartidos.size() > 0)
-//                dataAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_dropdown_item, listaPartidos);
                 dataAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_dropdown_item, listaPartidos);
             else
                 dataAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_dropdown_item, new String[]{"Sin conexión"});
