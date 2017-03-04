@@ -36,8 +36,9 @@ public class MainActivity extends AppCompatActivity {
     private TextInputLayout minuto;
     private FloatingActionButton okButton;
     private FloatingActionButton koButton;
-    private ArrayList<String> listaPartidos = new ArrayList<>();
+    private ArrayList<String> listaPartidos;
     private SpinnerAdapter dataAdapter;
+
     private View.OnTouchListener spinnerOnTouch = new View.OnTouchListener() {
         public boolean onTouch(View v, MotionEvent event) {
             if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -71,6 +72,11 @@ public class MainActivity extends AppCompatActivity {
         koButton.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.delete));
 
         partidos.setOnTouchListener(spinnerOnTouch);
+
+        if (listaPartidos == null) {
+            listaPartidos = new ArrayList<>();
+        }
+
     }
 
     public void votingClick(View view) {
@@ -80,7 +86,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        (new ParseURL()).execute(URL);
+        if (listaPartidos != null && listaPartidos.size() == 0) {
+            (new ParseURL()).execute(URL);
+        } else {
+            dataAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_dropdown_item, listaPartidos);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putStringArrayList("partidos", listaPartidos);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        listaPartidos = savedInstanceState.getStringArrayList("partidos");
     }
 
     /**
@@ -169,7 +192,14 @@ public class MainActivity extends AppCompatActivity {
             else
                 dataAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_dropdown_item, new String[]{"Sin conexión"});
 
-            progress.dismiss();
+            try {
+                progress.dismiss();
+            } catch (Exception ex) {
+                Log.e(TAG, "Pete en el dismiss", ex);
+            }
         }
     }
 }
+
+//Web Scraping
+//https://jarroba.com/scraping-java-jsoup-ejemplos/
