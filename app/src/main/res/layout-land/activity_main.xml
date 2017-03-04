@@ -29,7 +29,7 @@
             <TextView
                 android:id="@+id/form_lbl_partidos"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="0.4"
                 android:text="@string/lbl_partidos"
                 android:textAlignment="center"
@@ -38,7 +38,7 @@
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/form_partidos_jornada"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="0.6"
                 android:hint="@string/lbl_partidos"
                 android:inputType="text"
@@ -66,7 +66,7 @@
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/form_jugada"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="0.6"
                 android:entries="@array/minutos"
                 android:hint="@string/lbl_minuto"
@@ -96,7 +96,7 @@
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/form_jugada"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="0.6"
                 android:entries="@array/jugadas"
                 android:hint="@string/lbl_jugada"

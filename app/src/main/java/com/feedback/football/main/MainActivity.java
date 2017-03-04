@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrl
     private AppCompatSpinner partidos;
     private SpinnerAdapter dataAdapter;
     private ArrayList<String> listaPartidos = new ArrayList<>();
-    ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
