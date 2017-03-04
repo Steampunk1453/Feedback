@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Feedback</string>
+
     <string name="lbl_partidos">Partido</string>
-    <string name="lbl_minuto">Minuto [1-120]</string>
+    <string name="lbl_minuto">Minuto</string>
     <string name="lbl_jugada">Jugada</string>
-    <string name="lbl_jugador">Jugador</string>
-    <string name="Capture">Jugador</string>
+    <string name="lbl_arbitro">¿Ha acertado el arbitro?</string>
 </resources>
