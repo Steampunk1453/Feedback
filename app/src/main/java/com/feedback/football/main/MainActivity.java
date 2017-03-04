@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         koButton.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.delete));
 
         partidos.setOnTouchListener(spinnerOnTouch);
-
     }
 
     public void votingClick(View view) {
