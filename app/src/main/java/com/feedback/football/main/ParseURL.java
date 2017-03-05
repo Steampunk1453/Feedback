@@ -21,12 +21,10 @@ import java.util.ArrayList;
 public class ParseURL extends AsyncTask<String, Void, String> {
     private static final String TAG = "ParserURL";
     private final static String URL = "http://www.resultados-futbol.com/primera";
-
     private Context context;
     private ParseUrlListener callback;
     private ProgressDialog progress;
     private ArrayList<String> listaPartidos;
-
 
     public ParseURL(Context context, ParseUrlListener callback) {
         this.context = context;
@@ -37,10 +35,7 @@ public class ParseURL extends AsyncTask<String, Void, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-
-        progress = ProgressDialog.show(
-                context,
-                "Descargando listado de partidos",
+        progress = ProgressDialog.show(context, "Descargando listado de partidos",
                 "Espere mientras se descargan los partidos", true);
     }
 
@@ -75,15 +70,14 @@ public class ParseURL extends AsyncTask<String, Void, String> {
         progress.dismiss();
     }
 
-
     /**
      * Con este metodo se comprueba el Status code de la respuesta que se recibe al hacer la peticion
      * EJM:
-     * 200 OK			300 Multiple Choices
+     * 200 OK			        300 Multiple Choices
      * 301 Moved Permanently	305 Use Proxy
-     * 400 Bad Request		403 Forbidden
-     * 404 Not Found		500 Internal Server Error
-     * 502 Bad Gateway		503 Service Unavailable
+     * 400 Bad Request		    403 Forbidden
+     * 404 Not Found		    500 Internal Server Error
+     * 502 Bad Gateway		    503 Service Unavailable
      *
      * @param url
      * @return Status Code

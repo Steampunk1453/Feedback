@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="jugadas">
-        <item>Penalti</item>
         <item>Falta</item>
-        <item>Fuera de juego</item>
         <item>Amonestación</item>
         <item>Expulsión</item>
-        <item>Agresión</item>
+        <item>Fuera de juego</item>
+        <item>Penalti</item>
         <item>Mano</item>
+        <item>Agresión</item>
+        <item>Juego peligroso</item>
     </string-array>
-
 
     <string-array name="minutos">
         <item>[0 - 9]</item>
