@@ -20,10 +20,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".forms.PartidosFormActivity"
-            android:label="Prueba"
-            android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>
