@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string-array name="settings_options">
-        <item>Gestion de contraseñas</item>
-        <item>Mostrar tutorial</item>
-        <item>Pregunta de seguridad</item>
-        <item>Reiniciar contraseña</item>
-        <item>Eliminar publicidad</item>
-        <!--<item>Consumir publicidad</item>-->
-    </string-array>
-
     <string-array name="jugadas">
-        <item>Penalti de</item>
-        <item>Falta de</item>
-        <item>Fuera de juego de</item>
-        <item>Amonestación a</item>
-        <item>Expulsión de</item>
-        <item>Agresión de</item>
-        <item>Mano de</item>
+        <item>Penalti</item>
+        <item>Falta</item>
+        <item>Fuera de juego</item>
+        <item>Amonestación</item>
+        <item>Expulsión</item>
+        <item>Agresión</item>
+        <item>Mano</item>
     </string-array>
 
+
+    <string-array name="minutos">
+        <item>[0 - 9]</item>
+        <item>[10 - 19]</item>
+        <item>[20 - 29]</item>
+        <item>[30 - 39]</item>
+        <item>[40 - 49]</item>
+        <item>[50 - 59]</item>
+        <item>[60 - 69]</item>
+        <item>[70 - 79]</item>
+        <item>[80 - 89]</item>
+        <item>[90 - 99]</item>
+        <item>[100 - 109]</item>
+        <item>[110 - 120]</item>
+    </string-array>
 
 </resources>
