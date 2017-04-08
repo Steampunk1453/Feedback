@@ -15,6 +15,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
+import static com.feedback.football.utils.Utils.getStringJugadaId;
+import static com.feedback.football.utils.Utils.getStringMinutoId;
 
 public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrlListener {
     private static final String TAG = "MainActivity";
@@ -31,8 +33,8 @@ public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         partidos = (AppCompatSpinner) findViewById(R.id.form_partidos_jornada);
-        minuto = (AppCompatSpinner) findViewById(R.id.lbl_minuto);
-        jugada = (AppCompatSpinner) findViewById(R.id.form_minuto);
+        minuto = (AppCompatSpinner) findViewById(R.id.form_minuto);
+        jugada = (AppCompatSpinner) findViewById(R.id.form_jugada);
     }
 
     @Override
@@ -79,8 +81,13 @@ public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrl
         // TODO: Guardar el resultado en Firebase
         dbRef = FirebaseDatabase.getInstance().getReference().child("votacion");
         if (listaPartidos != null && listaPartidos.size() > 0) {
-            dbRef.child("partido").setValue(listaPartidos.get(partidos.getSelectedItemPosition()));
-            // Minuto de partido
+            String id = dbRef.push().getKey();
+            // Partido
+            dbRef.child(id).child("partido").setValue(listaPartidos.get(partidos.getSelectedItemPosition()));
+            // Minuto
+            dbRef.child(id).child("minuto").setValue(getStringMinutoId(MainActivity.this, minuto.getSelectedItemPosition()));
+            // Jugada
+            dbRef.child(id).child("jugada").setValue(getStringJugadaId(MainActivity.this, jugada.getSelectedItemPosition()));
         }
         Toast.makeText(this, "Se ha guardado su voto", Toast.LENGTH_SHORT).show();
     }
