@@ -88,6 +88,8 @@ public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrl
             dbRef.child(id).child("minuto").setValue(getStringMinutoId(MainActivity.this, minuto.getSelectedItemPosition()));
             // Jugada
             dbRef.child(id).child("jugada").setValue(getStringJugadaId(MainActivity.this, jugada.getSelectedItemPosition()));
+            // Voto ok
+            dbRef.child(id).child("ok").setValue(+1);
         }
         Toast.makeText(this, "Se ha guardado su voto", Toast.LENGTH_SHORT).show();
     }
@@ -102,8 +104,15 @@ public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrl
         // TODO: Guardar el resultado en Firebase
         dbRef = FirebaseDatabase.getInstance().getReference().child("votacion");
         if (listaPartidos != null && listaPartidos.size() > 0) {
-            dbRef.child("partido").setValue(listaPartidos.get(partidos.getSelectedItemPosition()));
-            // Minuto de partido
+            String id = dbRef.push().getKey();
+            // Partido
+            dbRef.child(id).child("partido").setValue(listaPartidos.get(partidos.getSelectedItemPosition()));
+            // Minuto
+            dbRef.child(id).child("minuto").setValue(getStringMinutoId(MainActivity.this, minuto.getSelectedItemPosition()));
+            // Jugada
+            dbRef.child(id).child("jugada").setValue(getStringJugadaId(MainActivity.this, jugada.getSelectedItemPosition()));
+            // Voto ok
+            dbRef.child(id).child("ko").setValue(+1);
         }
         Toast.makeText(this, "Se ha guardado su voto", Toast.LENGTH_SHORT).show();
     }
