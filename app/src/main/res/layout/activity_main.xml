@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="110dp"
-    tools:context="com.feedback.football.main.MainActivity">
+    tools:context="com.feedback.football.activities.MainActivity">
 
     <LinearLayout
         android:id="@+id/activity_main"

@@ -5,4 +5,7 @@
     <string name="lbl_minuto">Minuto</string>
     <string name="lbl_jugada">Jugada</string>
     <string name="lbl_arbitro">¿Ha acertado el arbitro?</string>
+    <string name="lbl_resultado_ok">Número de aciertos</string>
+    <string name="lbl_resultado_ko">Número de errores</string>
+
 </resources>

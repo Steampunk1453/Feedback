@@ -1,4 +1,4 @@
-package com.feedback.football.main;
+package com.feedback.football.activities;
 
 import android.app.ProgressDialog;
 import android.content.Context;

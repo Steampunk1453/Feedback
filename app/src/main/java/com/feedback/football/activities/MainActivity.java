@@ -1,4 +1,4 @@
-package com.feedback.football.main;
+package com.feedback.football.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
