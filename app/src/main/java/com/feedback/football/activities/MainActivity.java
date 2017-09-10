@@ -32,8 +32,6 @@ import static com.feedback.football.utils.Utils.getStringMinutoId;
 
 public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrlListener {
     private static final String TAG = "MainActivity";
-    List<ProductBean> dataList = new ArrayList<>();
-    ProductBean productBeanResponse = new ProductBean();
     private AppCompatSpinner partidos;
     private SpinnerAdapter dataAdapter;
     private ArrayList<String> listaPartidos = new ArrayList<>();
@@ -41,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrl
     private AppCompatSpinner jugada;
     private DatabaseReference dbRef;
     private APIService apiService;
+
+    private List<ProductBean> dataList = new ArrayList<>();
+    private ProductBean productBeanResponse = new ProductBean();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrl
 
         apiService = ApiUtils.getAPIService();
 
+//        sendGetAll();
     }
 
     @Override
@@ -110,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrl
         }
         Toast.makeText(this, "Se ha guardado su voto", Toast.LENGTH_SHORT).show();
 
-        sendPost("Android", "Test Post Android", 10.9);
+        sendPost("Android2", "Test Post Android2", 10.9);
     }
 
     /**
@@ -186,7 +188,6 @@ public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrl
                     Log.i(TAG, "post submitted to API." + response.body().toString());
                 }
             }
-
             @Override
             public void onFailure(Call<ProductBean> call, Throwable t) {
                 Log.e(TAG, "Unable to submit post to API.");
