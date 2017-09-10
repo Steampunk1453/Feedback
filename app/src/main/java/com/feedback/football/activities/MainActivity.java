@@ -52,8 +52,6 @@ public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrl
         jugada = (AppCompatSpinner) findViewById(R.id.form_jugada);
 
         apiService = ApiUtils.getAPIService();
-
-//        sendGetAll();
     }
 
     @Override
@@ -112,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrl
         }
         Toast.makeText(this, "Se ha guardado su voto", Toast.LENGTH_SHORT).show();
 
-        sendPost("Android2", "Test Post Android2", 10.9);
+        sendPost("Android", "Test Post Android", 05.9);
     }
 
     /**
@@ -138,7 +136,6 @@ public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrl
         Toast.makeText(this, "Se ha guardado su voto", Toast.LENGTH_SHORT).show();
 
         sendGetAll();
-
     }
 
     private void sendGetAll() {
@@ -153,13 +150,13 @@ public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrl
 //
 //      apiService = retrofit.create(APIService.class);
         Call<List<ProductBean>> call = apiService.getData();
-
         call.enqueue(new Callback<List<ProductBean>>() {
             @Override
             public void onResponse(Call<List<ProductBean>> call, Response<List<ProductBean>> response) {
                 switch (response.code()) {
                     case 200:
                         dataList = response.body();
+                        showResultsGet();
                         break;
                     case 401:
                         break;
@@ -167,15 +164,11 @@ public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrl
                         break;
                 }
             }
-
             @Override
             public void onFailure(Call<List<ProductBean>> call, Throwable t) {
                 Log.e(TAG, "Unable to send Get to API.");
             }
         });
-        if (dataList.size() > 0) {
-            Toast.makeText(this, dataList.get(0).getDescription(), Toast.LENGTH_LONG).show();
-        }
     }
 
     public void sendPost(String name, String description, Double price) {
@@ -185,6 +178,7 @@ public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrl
             public void onResponse(Call<ProductBean> call, Response<ProductBean> response) {
                 if (response.isSuccessful()) {
                     productBeanResponse = response.body();
+                    showResultsPost();
                     Log.i(TAG, "post submitted to API." + response.body().toString());
                 }
             }
@@ -193,6 +187,15 @@ public class MainActivity extends AppCompatActivity implements ParseURL.ParseUrl
                 Log.e(TAG, "Unable to submit post to API.");
             }
         });
+    }
+
+    private void showResultsGet() {
+        if (dataList.size() > 0) {
+            Toast.makeText(this, dataList.get(0).getDescription(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void showResultsPost() {
         if (productBeanResponse.getDescription() != null) {
             Toast.makeText(this, productBeanResponse.getDescription(), Toast.LENGTH_LONG).show();
         }
